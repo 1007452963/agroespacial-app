@@ -73,7 +73,8 @@ if "ready" not in st.session_state:
 # CARGA DE DATOS Y PIPELINE EMPÍRICO EVA
 # -----------------------------------------------------------------------------
 def load_pipeline():
-    SHP_DIR = Path("/content/gadm_col")
+    # Usamos una ruta local relativa para evitar errores de permisos en Streamlit Cloud
+    SHP_DIR = Path("gadm_col")
     SHP_DIR.mkdir(exist_ok=True, parents=True)
     url = "https://geodata.ucdavis.edu/gadm/gadm4.1/shp/gadm41_COL_shp.zip"
     if not list(SHP_DIR.glob("*_1.shp")):
@@ -375,7 +376,7 @@ else:
 
     with tab3:
         st.markdown("### Grafología satelital-espacial 3D")
-        st.markdown("Eje Z = producción · Color = rendimiento · Tamaño = área sembrada.")
+        st.markdown("Eje Z = production · Color = rendimiento · Tamaño = área sembrada.")
         
         panel, gdf = st.session_state.panel, st.session_state.gdf_static
         g_3d = gdf.merge(panel[panel["year"] == int(selected_year)], on="departamento", how="left")
