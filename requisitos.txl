@@ -1,0 +1,16 @@
+streamlit
+libpysal 
+esda 
+spreg 
+geopandas 
+statsmodels 
+matplotlib 
+seaborn 
+folium 
+mapclassify 
+numpy 
+pandas 
+scipy 
+splot 
+plotly 
+requests
